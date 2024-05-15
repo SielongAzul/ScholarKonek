@@ -15,14 +15,18 @@ class MyScholarshipApplicationController extends Controller
 
         return view('my_scholarship_application.index',
         [
-            //Declared Error by Intellisense but working
             'applications' => auth()->user()->scholarshipApplications()
-                ->with('scholarship','scholarship.scholarprovider')
-                ->latest()->get()
-                
+                ->with([
+                    'scholarship' => function ($query) {
+                        $query->withCount('scholarshipApplications')
+                              ->withTrashed();
+                    },
+                    'scholarship.scholarprovider'
+                ])
+                ->latest()
+                ->get()
         ]
-    
-            );
+    );
     }
 
    

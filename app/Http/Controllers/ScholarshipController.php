@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Request\ScholarshipRequest;
+
+
 use App\Models\Scholarship;
 use Illuminate\Http\Request;
 
@@ -26,4 +29,5 @@ class ScholarshipController extends Controller
         return view('scholarship.show',['scholarship'=> $scholarship->load('scholarprovider.scholarships')]);
 
     }
+    
 }

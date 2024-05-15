@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\ScholarshipRequest;
+use App\Http\Requests\ScholarshipRequest;
 use App\Models\Scholarship;
 use Illuminate\Http\Request;
 
@@ -21,7 +21,7 @@ class MyScholarshipController extends Controller
         'scholarships'=>auth()->user()->scholarprovider
         ->scholarships()
         ->with(['scholarprovider','scholarshipApplications','scholarshipApplications.user'])
-    
+        ->withTrashed()
         ->get()
     ]);
     }
@@ -42,7 +42,7 @@ class MyScholarshipController extends Controller
     public function store(ScholarshipRequest $request)
     {
        
-        $this->authorize('create', Scholarship::class);
+        
         auth()->user()->scholarprovider->scholarships()->create($request->validated());
         return redirect()->route('my-scholarships.index')
             ->with('success', 'Scholarship Published');
@@ -71,7 +71,7 @@ class MyScholarshipController extends Controller
     public function update(ScholarshipRequest $request, Scholarship $myScholarship)
     {
        
-        $this->authorize('update', $myScholarship);
+        
         $myScholarship->update($request->validated());
         return redirect()->route('my-scholarships.index')
         ->with('success', 'Scholarship Updated');

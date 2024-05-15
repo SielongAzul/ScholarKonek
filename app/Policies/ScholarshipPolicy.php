@@ -34,7 +34,7 @@ class ScholarshipPolicy
      */
     public function create(User $user): bool
     {
-        return $user->scholarprovider != null;
+        return $user->scholarprovider !== null;
     }
 
     /**

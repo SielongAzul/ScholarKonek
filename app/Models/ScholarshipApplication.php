@@ -11,6 +11,7 @@ class ScholarshipApplication extends Model
     use HasFactory;
     
     protected $fillable = [
+        
         'graduated_at',
         'schoolyear_start',
         'schoolyear_finish',
