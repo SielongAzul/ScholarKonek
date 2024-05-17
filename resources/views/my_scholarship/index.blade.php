@@ -15,11 +15,18 @@
             <div class="mb-4 flex items-center justify-between">
             <div>
               <div>{{ $application->user->name }}</div>
+              <div>Entered Input</div>
+              <div>Studied at: {{$application->graduated_at}}</div>  
+              <div>School Year: {{$application->schoolyear_start}}-{{$application->schoolyear_finish}}</div>
+              <div>Entered Grade: {{$application->grade}}</div>  
+              <div>Entered Age: {{$application->age}}</div>  
+              <div>Entered Contact: {{$application->contactnumber}}</div>
+              <div>Entered Email: {{$application->emailadd}}</div>    
               <div>
                 Applied {{ $application->created_at->diffForHumans() }}
               </div>
               <div>
-                Download Files (Not available yet)
+                Download Documents
               </div>
             </div>
 

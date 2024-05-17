@@ -11,6 +11,18 @@
             {{!!nl2br( e($scholarship->description) )!!}}
         </p>
 
+        <h1 class="text-lg font-medium">School</h1>
+        <p>{{$scholarship->schoolname}}</p>
+        <h1 class="text-lg font-medium">Contact Number</h1>
+        <p>{{$scholarship->contactno}}</p>
+        <h1 class="text-lg font-medium">Location</h1>
+        <p>{{$scholarship->location}}</p>
+        
+     
+
+        <h1 class="text-lg font-medium">Requirements</h1>
+        <p>{{$scholarship->requirements}}</p>
+
         @can('apply', $scholarship)
         <x-link-button :href="route('scholarships.application.create', $scholarship)">Apply Scholarship</x-link-button>
         @else

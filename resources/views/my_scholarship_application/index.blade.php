@@ -23,6 +23,7 @@
                 
             </div>
             <div>
+              
                 <form action="{{route('my-scholarship-applications.destroy', $application)}}" method="POST">
                     @csrf 
                     @method('DELETE')
